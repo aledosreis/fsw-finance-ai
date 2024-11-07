@@ -1,11 +1,17 @@
-name: fsw-finance-ai
+version: "3"
 
 services:
-  pg:
-    image: bitnami/postgresql:13.16.0
+  postgres:
+    image: postgres:latest
+    container_name: fsw-finance-ai-db
+    environment:
+      POSTGRES_USER: docker
+      POSTGRES_PASSWORD: docker
+      POSTGRES_DB: financeai
     ports:
       - "5432:5432"
-    environment:
-      - POSTGRES_USER=docker
-      - POSTGRES_PASSWORD=docker
-      - POSTGRES_DB=financeai
+    volumes:
+      - ./.postgres-data:/var/lib/postgresql/data
+
+volumes:
+  .postgres-data:
