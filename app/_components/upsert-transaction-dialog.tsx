@@ -100,6 +100,7 @@ export function UpsertTransactionDialog({
 
   async function onSubmit(data: FormSchema) {
     try {
+      console.log(data);
       await upsertTransaction({ ...data, id: transactionId });
       setIsOpen(false);
       form.reset();
@@ -150,10 +151,10 @@ export function UpsertTransactionDialog({
                   <FormControl>
                     <MoneyInput
                       placeholder="Digite o valor..."
+                      value={field.value}
                       onValueChange={({ floatValue }) =>
                         field.onChange(floatValue)
                       }
-                      {...field}
                       onBlur={field.onBlur}
                       disabled={field.disabled}
                     />
