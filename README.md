@@ -8,20 +8,18 @@ Finance AI é uma aplicação de gerenciamento financeiro, projeto desenvolvido 
 
 Clone este repositório.
 
-Na raíz do projeto, crie um arquivo `.env` com a url de conexão do seu banco Postgresql e as chaves privadas do Clerk (conforme exemplo disponível em `.env.example`).
+Na raíz do projeto, crie um arquivo `.env` e preencha os valores necessários das variáveis conforme exemplo disponível em `.env.example`.
 
-```env
-DATABASE_URL=""
-# Clerk
-NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=""
-CLERK_SECRET_KEY=""
+Caso deseje rodar um banco de dados localmente com docker, execute os comandos abaixo:
+
+```bash
+docker compose up -d
 ```
 
-Com o arquivo configurado, execute os comandos:
+Com o arquivo configurado e o banco de dados já em execução, execute os comandos:
 
 ```bash
 npm i
-docker compose up -d
 npx prisma migrate dev
 npm run dev
 ```
